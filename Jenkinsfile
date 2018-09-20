@@ -6,12 +6,11 @@ pipeline {
 		}
 	}
    	 stage('Build') { 
-	   
 		steps {
-		// comentario
-		def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
-		sh "${mvnHome}/bin/mvn -B -DskipTests clean package" 
+			// comentario
+			def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
+			sh "${mvnHome}/bin/mvn -B -DskipTests clean package" 
         	}  
-      	}	 
+      	}
     }
 }
