@@ -9,7 +9,7 @@ pipeline {
 	     def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
 		echo " var env ${env.PATH} "
 		echo " var mvn ${mvnHome} "
-	    def env.PATH = "${mvnHome}/bin:${env.PATH}"
+	    env.PATH = "${mvnHome}/bin:${env.PATH}"
 		 }
 	}
 	stage('SCM Checkout') {
