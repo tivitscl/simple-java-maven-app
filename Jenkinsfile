@@ -1,7 +1,7 @@
 pipeline {
 	environment {
-	    def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
-	     env.PATH = "${mvnHome}/bin/:${env.PATH}"   
+	     mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
+	     PATH = '${mvnHome}/bin/:${env.PATH}' 
 	    
 	}
 	
