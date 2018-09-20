@@ -23,9 +23,9 @@ pipeline {
 			sh "mvn -B -DskipTests clean package" 
         	}  
       	}
-	    stage ('Test') {
+	    stage ('Testing') {
 		    steps {
-		    	sh 'make check'
+		    	sh 'mvn test'
 			//junit 'reports/**/*.xml'
 			junit 'simple-java-maven-app/reports/*.xml'
 		    }    
@@ -33,7 +33,7 @@ pipeline {
 	    
 	    stage ('Deploy') {
 		    steps {
-		    	sh 'make publish'
+		    	sh 'mvn deploy'
 			
 		    }    
 	    }
