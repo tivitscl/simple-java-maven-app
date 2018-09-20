@@ -3,6 +3,8 @@ pipeline {
 	
 	environment {
 	     mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
+		echo " var env ${env.PATH} "
+		echo " var mvn ${mvnHome} "
 	    env.PATH = "${mvnHome}/bin:${env.PATH}"
 	}
 	
