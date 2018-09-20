@@ -1,15 +1,17 @@
 pipeline {
+	environment {
+	    def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
+	     env.PATH = "${mvnHome}/bin/:${env.PATH}"   
+	    
+	}
+	
     stages {
 	stage('SCM Checkout') {
 		steps {
 			git 'https://github.com/tivitscl/simple-java-maven-app'
 		}
 	}
-	environment {
-	    def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'
-	     env.PATH = "${mvnHome}/bin/:${env.PATH}"   
-	    
-	}
+	
    	 stage('Build') {
 		
 		 
