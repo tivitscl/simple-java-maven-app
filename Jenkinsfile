@@ -20,7 +20,7 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean package" 
+			sh "mvn -B -DskipTests clean install" 
         	}  
       	}
 	    stage ('Testing') {
