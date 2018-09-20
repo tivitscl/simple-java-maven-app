@@ -2,8 +2,8 @@ pipeline {
 	agent any
 	
 	environment {
-	def mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'	 
-	     
+	mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'	 
+	PATH = "${mvnHome}/bin:${env.PATH}"
 
 	
 	
