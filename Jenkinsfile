@@ -1,4 +1,5 @@
 pipeline {
+	agents {
 	stage('SCM Checkout') {
 		git 'https://github.com/tivitscl/simple-java-maven-app'
 	}
@@ -9,5 +10,6 @@ pipeline {
 	    
           
       }
+	}
 }
 
