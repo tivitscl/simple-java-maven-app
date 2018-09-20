@@ -23,14 +23,14 @@ pipeline {
 			sh "mvn -B -DskipTests clean install" 
         	}  
       	}
-	    stage ('Testing') {
-		    steps {
-		    	sh 'mvn test'
-			//junit 'reports/**/*.xml'
-			junit 'simple-java-maven-app/reports/*.xml'
+	//    stage ('Testing') {
+	//	    steps {
+	//	    	sh 'mvn test'
+	//		//junit 'reports/**/*.xml'
+		/*	junit 'simple-java-maven-app/reports/*.xml'
 		    }    
 	    }
-	    
+	  */  
 	    stage ('Deploy') {
 		    steps {
 		    	sh 'mvn deploy'
