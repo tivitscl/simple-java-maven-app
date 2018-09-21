@@ -29,11 +29,9 @@ pipeline {
 	     stage('Email')
         {
 		steps{
-            env.ForEmailPlugin = env.WORKSPACE      
-            emailext attachmentsPattern: 'TestResults\\*.trx',      
-            body: '''${SCRIPT, template="groovy_html.template"}''', 
-            subject: currentBuild.currentResult + " : " + env.JOB_NAME, 
-            to: 'fernandop2007@gmail.com'
+           mail to: 'fernandop2007@gmail.com',
+          subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+          body: "${env.BUILD_URL} has result ${currentBuild.result}"
 		}
         }
 	   stage('Sonarqube Analysis') {
