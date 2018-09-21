@@ -3,6 +3,7 @@ pipeline {
 	environment {
 	mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'	 
 	PATH = "${mvnHome}/bin:${env.PATH}"
+	sonarHOME = tool name: 'sonarQubeScanner-3.0.0.702', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 	}
 	
     stages {
@@ -20,22 +21,78 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean package" 
+			sh "mvn -B -DskipTests clean install" 
         	}  
       	}
-	    stage ('Test') {
-		    steps {
-		    	sh 'make check'
-			junit 'reports/**/*.xml'
+	    
+	   stage('Sonarqube Analysis') {
+		   
+		   
+		      steps {
+			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
+			
+			//withSonarQubeEnv('SonarQube Scanner') { No lo encontro
+			 //withSonarQubeEnv('sonarQubeScanner-3.0.0.702') { // defined in this job (sonarQubeScanner-3.0.0.702) does not match any configured installationesta definido en tool			
+			  //sh 'sonar-scanner'
+			withSonarQubeEnv('sonarServer') { // definido en admin jenkins : SOnarWube servers
+			 sh "${sonarHOME}/bin/sonar-scanner"
+	
+			 
+			}
+		      }
+		/*steps {
+			echo '----------------------------------------------------------------------------------'
+			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
+			echo '----------------------------------------------------------------------------------'
+		*/	// sh 'mvn sonar:sonar'
+			
+			/*def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
+			withSonarQubeEnv('sonarServer')
+			sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
+			*/
+		//}
+	}
+	stage('Test') { 
+            steps {
+                sh 'mvn test' 
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml' 
+                }
+            }
+        }
+	 stage('Deliver') {
+            steps {
+		sh 'pwd'
+		 sh 'whoami'
+		   sh 'chmod 775 -R ./jenkins/scripts/'
+		sh 'ls -la ./jenkins/scripts/'
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
+	 
+	    
+	//    stage ('Testing') {
+	//	    steps {
+	//	    	sh 'mvn test'
+	//		//junit 'reports/**/*.xml'
+		/*	junit 'simple-java-maven-app/reports/*.xml'
 		    }    
 	    }
-	    
-	    stage ('Deploy') {
+	  */  
+	 /*   stage ('Deploy') {
+		    when {
+			    expression {
+			    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+			    }
+		    }
 		    steps {
-		    	sh 'make publish'
+		    	sh 'mvn deploy'
 			
 		    }    
 	    }
+	    */
     }
 	
 	
