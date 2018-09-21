@@ -25,14 +25,16 @@ pipeline {
       	}
 	    
 	   stage('Sonarqube Analysis') {
-		echo '----------------------------------------------------------------------------------'
-		echo '--------------------------SONARQUBE ANALIST---------------------------------------'
-		echo '----------------------------------------------------------------------------------'
-		 sh 'mvn sonar:sonar'
-		/*def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
-		withSonarQubeEnv('sonarServer')
-		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
-		*/
+		steps {
+			echo '----------------------------------------------------------------------------------'
+			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
+			echo '----------------------------------------------------------------------------------'
+			 sh 'mvn sonar:sonar'
+			/*def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
+			withSonarQubeEnv('sonarServer')
+			sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
+			*/
+		}
 	}
 	stage('Test') { 
             steps {
