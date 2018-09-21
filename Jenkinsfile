@@ -35,8 +35,8 @@ pipeline {
         }
 	 stage('Deliver') {
             steps {
-		def var1 = sh 'pwd'
-		def var2  = sh 'ls -la'
+		var1 = sh 'pwd'
+		var2  = sh 'ls -la'
 		    echo ' var 1: ${var1} '
 		    echo ' var 2: ${var2} '
                 sh './jenkins/scripts/deliver.sh'
