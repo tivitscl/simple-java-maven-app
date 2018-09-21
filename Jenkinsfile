@@ -97,9 +97,7 @@ pipeline {
 	    */
     }
 	post {
-		always {
 		
-		}
 		failure {
 			mail to: 'fernando.painemal@tivit.com',
 			     subject: "Pipeline ha fallado.....",
