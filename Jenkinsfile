@@ -31,7 +31,8 @@ pipeline {
 		      steps {
 			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
 			
-			withSonarQubeEnv('SonarQube Scanner') {
+			//withSonarQubeEnv('SonarQube Scanner') { No lo encontro
+			withSonarQubeEnv('sonarQubeScanner-3.0.0.702') {// esta definido en tool			
 			  //sh 'sonar-scanner'
 			 sh "${sonarHOME}/bin/sonar-scanner"
 			}
