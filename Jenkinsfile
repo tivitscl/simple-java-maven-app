@@ -72,9 +72,9 @@ pipeline {
             }
         }
 	 stage('Publish build info') {
-		 steps {
+		 
        			 server.publishBuildInfo buildInfo
-		 }
+		 
     	}
 	    
 	//    stage ('Testing') {
