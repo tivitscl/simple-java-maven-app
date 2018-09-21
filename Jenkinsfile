@@ -23,7 +23,17 @@ pipeline {
 			sh "mvn -B -DskipTests clean install" 
         	}  
       	}
-	/*+stage('Sonarqube Analysis') {
+	stage('Test') { 
+            steps {
+                sh 'mvn test' 
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml' 
+                }
+            }
+        }
+	    /*+stage('Sonarqube Analysis') {
 		def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
 		withSonarQubeEnv('sonarServer')
 		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
