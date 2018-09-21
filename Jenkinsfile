@@ -26,14 +26,7 @@ pipeline {
 
 		}  
       	}
-	     stage('Email')
-        {
-		steps{
-           mail to: 'fernandop.painemal@tivit.com',
-          subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-          body: "${env.BUILD_URL} has result ${currentBuild.result}"
-		}
-        }
+	
 	   stage('Sonarqube Analysis') {
 		   
 		   
@@ -80,7 +73,8 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-		    
+	
+	
 	//    stage ('Testing') {
 	//	    steps {
 	//	    	sh 'mvn test'
@@ -102,6 +96,13 @@ pipeline {
 	    }
 	    */
     }
-
+	post {
+		always {
+		
+		}
+		failure {
+			mail to:fernando.painemal@tivit.com, subject: "Pipeline ha fallado....."
+		}
+	}
 	
 }
