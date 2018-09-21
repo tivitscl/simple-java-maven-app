@@ -101,7 +101,9 @@ pipeline {
 		
 		}
 		failure {
-			mail to:fernando.painemal@tivit.com, subject: "Pipeline ha fallado....."
+			mail to: 'fernando.painemal@tivit.com',
+			     subject: "Pipeline ha fallado.....",
+				body: "algo a fallado con el proyecto"
 		}
 	}
 	
