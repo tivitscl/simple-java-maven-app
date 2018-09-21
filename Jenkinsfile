@@ -33,17 +33,17 @@ pipeline {
 			  sh 'sonar-scanner'
 			}
 		      }
-		steps {
+		/*steps {
 			echo '----------------------------------------------------------------------------------'
 			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
 			echo '----------------------------------------------------------------------------------'
-			// sh 'mvn sonar:sonar'
+		*/	// sh 'mvn sonar:sonar'
 			
 			/*def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
 			withSonarQubeEnv('sonarServer')
 			sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
 			*/
-		}
+		//}
 	}
 	stage('Test') { 
             steps {
