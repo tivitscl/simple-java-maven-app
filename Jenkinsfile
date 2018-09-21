@@ -25,12 +25,14 @@ pipeline {
       	}
 	    
 	   stage('Sonarqube Analysis') {
-		   tools {
-			sonarQube 'SonarQube Scanner 2.8'
-		      }
+		   
+		   
 		      steps {
+			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
+			def sonarHOME = tool name: 'sonarQubeScanner-3.0.0.702', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 			withSonarQubeEnv('SonarQube Scanner') {
-			  sh 'sonar-scanner'
+			  //sh 'sonar-scanner'
+			 sh "${sonarHOME}/bin/sonar-scanner"
 			}
 		      }
 		/*steps {
