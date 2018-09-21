@@ -23,12 +23,12 @@ pipeline {
 			sh "mvn -B -DskipTests clean install" 
         	}  
       	}
-	stage('Sonarqube Analysis') {
+	/*+stage('Sonarqube Analysis') {
 		def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
 		withSonarQubeEnv('sonarServer')
 		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=fr.demo:my-project -Dsonar.sources=.- -Dsonar.java.binaries=.""
 	}
-	    
+	  */  
 	//    stage ('Testing') {
 	//	    steps {
 	//	    	sh 'mvn test'
@@ -37,7 +37,7 @@ pipeline {
 		    }    
 	    }
 	  */  
-	    stage ('Deploy') {
+	 /*   stage ('Deploy') {
 		    when {
 			    expression {
 			    currentBuild.result == null || currentBuild.result == 'SUCCESS'
@@ -48,6 +48,7 @@ pipeline {
 			
 		    }    
 	    }
+	    */
     }
 	
 	
