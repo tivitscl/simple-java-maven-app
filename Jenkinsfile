@@ -3,6 +3,7 @@ pipeline {
 	environment {
 	mvnHome = tool name: 'maven-3.5.0-jenkins', type: 'maven'	 
 	PATH = "${mvnHome}/bin:${env.PATH}"
+	sonarHOME = tool name: 'sonarQubeScanner-3.0.0.702', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 	}
 	
     stages {
@@ -29,7 +30,7 @@ pipeline {
 		   
 		      steps {
 			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
-			def sonarHOME = tool name: 'sonarQubeScanner-3.0.0.702', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+			
 			withSonarQubeEnv('SonarQube Scanner') {
 			  //sh 'sonar-scanner'
 			 sh "${sonarHOME}/bin/sonar-scanner"
