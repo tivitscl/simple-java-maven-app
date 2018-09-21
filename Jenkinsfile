@@ -99,7 +99,7 @@ pipeline {
 	post {
 		
 		failure {
-			mail to: 'fernandop2007@gmail.com',
+			mail to: 'fernando.painemal@tivit.com',
 			     subject: "Pipeline ha fallado.....",
 				body: "algo a fallado con el proyecto"
 		}
