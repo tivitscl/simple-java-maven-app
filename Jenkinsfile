@@ -37,6 +37,7 @@ pipeline {
             steps {
 		sh 'pwd'
 		 sh 'whoami'
+		   sh 'chmod 775 -R ./jenkins/scripts/'
 		sh 'ls -la ./jenkins/scripts/'
                 sh './jenkins/scripts/deliver.sh'
             }
