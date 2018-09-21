@@ -33,6 +33,11 @@ pipeline {
                 }
             }
         }
+	 stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
 	    /*+stage('Sonarqube Analysis') {
 		def scannerHome = tool 'sonarQubeScanner-3.0.0.702'
 		withSonarQubeEnv('sonarServer')
