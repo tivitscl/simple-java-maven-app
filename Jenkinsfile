@@ -32,8 +32,9 @@ pipeline {
 			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
 			
 			//withSonarQubeEnv('SonarQube Scanner') { No lo encontro
-			withSonarQubeEnv('sonarQubeScanner-3.0.0.702') {// esta definido en tool			
+			 //withSonarQubeEnv('sonarQubeScanner-3.0.0.702') { // defined in this job (sonarQubeScanner-3.0.0.702) does not match any configured installationesta definido en tool			
 			  //sh 'sonar-scanner'
+			withSonarQubeEnv('sonarServer') { // definido en admin jenkins : SOnarWube servers
 			 sh "${sonarHOME}/bin/sonar-scanner"
 			}
 		      }
