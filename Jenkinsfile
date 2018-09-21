@@ -21,7 +21,7 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean install sdk" 
+			sh "mvn -B -DskipTests clean install" 
 
 
 		}  
@@ -99,7 +99,7 @@ pipeline {
 	post {
 		
 		failure {
-			mail to: 'fernando.painemal@tivit.com',
+			mail to: 'fernandop2007@gmail.com',
 			     subject: "Pipeline ha fallado.....",
 				body: "algo a fallado con el proyecto"
 		}
