@@ -99,7 +99,7 @@ pipeline {
 	post {
 		
 		failure {
-			emailext body: 'cuerpo del correo', subject: 'Prueba de envio de mail', to: 'fernandop2007@gmail.com'
+			emailext body: "Ocurrio un error en la generación de la app Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", subject: 'Error ', to: 'fernandop2007@gmail.com'
 		}
 	}
 	
