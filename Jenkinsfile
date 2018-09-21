@@ -99,9 +99,9 @@ pipeline {
 	post {
 		
 		failure {
-			emailext body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
-			, subject: "Ocurrio un error en la generación de la app Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'""
+			emailext body: "<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+         <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>"
+			, subject: "Ocurrio un error en la generación de la app Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
 			, to: 'fernandop2007@gmail.com'
 		}
 	}
