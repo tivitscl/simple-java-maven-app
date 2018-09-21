@@ -99,9 +99,7 @@ pipeline {
 	post {
 		
 		failure {
-			emailext body: '<p>FAILED: Job "${env.JOB_NAME} [${env.BUILD_NUMBER}]":</p>'
-			, subject: 'Ocurrio un error en la generación de la app Job' 
-			, to: 'fernandop2007@gmail.com'
+			emailext body: "<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>" , subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]"  , to: "fernandop2007@gmail.com"
 		}
 	}
 	
