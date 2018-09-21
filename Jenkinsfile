@@ -99,9 +99,7 @@ pipeline {
 	post {
 		
 		failure {
-			mail to: 'fernando.painemal@tivit.com',
-			     subject: "Pipeline ha fallado.....",
-				body: "algo a fallado con el proyecto"
+			emailext body: 'cuerpo del correo', subject: 'Prueba de envio de mail', to: 'fernandop2007@gmail.com'
 		}
 	}
 	
