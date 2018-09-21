@@ -72,12 +72,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-	 stage('Publish build info') {
-		 
-       			 server.publishBuildInfo buildInfo
-		 
-    	}
-	    
+		    
 	//    stage ('Testing') {
 	//	    steps {
 	//	    	sh 'mvn test'
