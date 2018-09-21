@@ -35,6 +35,8 @@ pipeline {
         }
 	 stage('Deliver') {
             steps {
+		sh 'pwd'
+		 
 		var1 = sh 'pwd'
 		var2  = sh 'ls -la'
 		    echo ' var 1: ${var1} '
