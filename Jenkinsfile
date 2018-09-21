@@ -21,7 +21,7 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean install sdk" 
+			sh "mvn -B -DskipTests clean install" 
 
 
 		}  
