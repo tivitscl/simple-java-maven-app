@@ -74,15 +74,7 @@ pipeline {
             }
         }
 	   
-	    sate('update artifact on webservers'){
-		    steps{
-			   echo "-------------------- update artifact on webserver --------------------------"
-		    	sshagent (credentials: ['tomcat_8081']) {
-			    sh 'scp -o StrictHostKeyChecking=no target/*.war'
-			}
-		    
-		    }
-	    }
+	
 	
 	//    stage ('Testing') {
 	//	    steps {
