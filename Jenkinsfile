@@ -73,7 +73,16 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-	
+	   
+	    sate('update artifact on webservers'){
+		    steps{
+			   echo "-------------------- update artifact on webserver --------------------------"
+		    	sshagent (credentials: ['deploy-dev']) {
+			    sh 'scp -o StrictHostKeyChecking=no target/*.war'
+			}
+		    
+		    }
+	    }
 	
 	//    stage ('Testing') {
 	//	    steps {
@@ -95,6 +104,7 @@ pipeline {
 		    }    
 	    }
 	    */
+	    
     }
 	post {
 		success {
@@ -105,6 +115,7 @@ pipeline {
 			    Verificar la consola ${env.BUILD_URL}' """,
 			      to: "fernandop2007@gmail.com",
 			  recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+			  
 			)
 		    }
 
