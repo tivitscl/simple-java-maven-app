@@ -74,7 +74,9 @@ pipeline {
             }
         }
 	   
-	
+	stage ('Starting job') {
+    		build job: 'app-war1', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: systemname]]
+	}
 	
 	//    stage ('Testing') {
 	//	    steps {
