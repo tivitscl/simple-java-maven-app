@@ -76,8 +76,8 @@ pipeline {
 	   
 	stage ('Starting job') {
             steps {
-		
-    		build job: 'app-war1', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: systemname]]
+		echo "--------------------------------------- call job build ------------------------"
+    		build ('app-war1')
 
 	    }
 	}
