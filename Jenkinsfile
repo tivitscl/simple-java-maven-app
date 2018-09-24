@@ -23,7 +23,8 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean install" 
+			//sh "mvn -B -DskipTests clean install" 
+			sh "mvn -B clean install" 
 
 
 		}  
