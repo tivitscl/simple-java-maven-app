@@ -23,6 +23,7 @@ public class AppTest
     @Test
     public void testAppConstructor() {
         try {
+            System.out.println("---------------- Realizando Test: testAppConstructor() --------------------");
             new App();
         } catch (Exception e) {
             fail("Construction failed.");
@@ -32,6 +33,7 @@ public class AppTest
     @Test
     public void testAppMain()
     {
+        System.out.println("---------------- Realizando Test: testAppMain() --------------------");
         App.main(null);
         try {
             assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
