@@ -73,11 +73,11 @@ pipeline {
 		 sh 'whoami'
 		   sh 'chmod 775 -R ./jenkins/scripts/'
 		sh 'ls -la ./jenkins/scripts/'
-                sh './jenkins/scripts/deliver.sh'
+               // sh './jenkins/scripts/deliver.sh'
             }
         }
 	   
-	stage ('Starting job') {
+	stage ('Starting job deploy webapp') {
             steps {
 		echo "--------------------------------------- call job build ------------------------"
     		build ('app-war1')
