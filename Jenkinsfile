@@ -108,8 +108,8 @@ pipeline {
 		     
 		      emailext (
 			  subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-			  body: """SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':/n
-			    Verificar la consola ${env.BUILD_URL}' """,
+			  body: """Ejecuci&oacute;n de job en jenkins fue SUCCESSFUL:<br> Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
+			    <br>Verificar la consola ${env.BUILD_URL}' """,
 			      to: "fernandop2007@gmail.com",
 			  recipientProviders: [[$class: 'DevelopersRecipientProvider']]
 			  
@@ -117,7 +117,7 @@ pipeline {
 		    }
 
 		failure {
-			emailext body: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})" 	, subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]"  , to: "fernandop2007@gmail.com"
+			emailext body: "Ocurrio un error en job de ejenkins FAILED: <br>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'  <br>(${env.BUILD_URL})" 	, subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]"  , to: "fernandop2007@gmail.com"
 		}
 	}
 	
