@@ -40,7 +40,7 @@ pipeline {
 			  //sh 'sonar-scanner'
 			withSonarQubeEnv('sonarServer') { // definido en admin jenkins : SOnarWube servers
 			// sh "${sonarHOME}/bin/sonar-scanner"
-			sh "bin/sonar-scanner"
+			sh "sonar-scanner"
 	
 			 
 			}
