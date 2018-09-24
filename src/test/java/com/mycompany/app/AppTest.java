@@ -23,7 +23,7 @@ public class AppTest
     @Test
     public void testAppConstructor() {
         try {
-            System.out.println("---------------- Realizando Test: testAppConstructor() --------------------");
+            System.out.println("---------------- Realizando Test: testAppConstructor() -----------------");
             new App();
         } catch (Exception e) {
             fail("Construction failed.");
