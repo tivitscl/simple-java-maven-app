@@ -81,7 +81,7 @@ pipeline {
 	stage ('Starting job deploy webapp') {
             steps {
 		echo "--------------------------------------- call job build ------------------------"
-    		build ('app-war1')
+    		build ('app-build1')
 
 	    }
 	}
