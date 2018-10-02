@@ -23,7 +23,8 @@ pipeline {
 			// comentario
 			echo "variable env.PATH = '${env.PATH}'"
 			 
-			sh "mvn -B -DskipTests clean install" 
+			//OK sh "mvn -B -DskipTests clean install" 
+			sh "mvn sonar:sonar -Dsonar.analysis.mode=preview -Dsonar.report.export.path=sonar-report.json"
 			//sh "mvn -B clean install" 
 
 
