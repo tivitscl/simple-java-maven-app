@@ -43,17 +43,9 @@ pipeline {
 			withSonarQubeEnv('sonarServer') { // definido en admin jenkins : SOnarWube servers
 			 sh "${sonarHOME}/bin/sonar-scanner"
 			//sh "sonar-scanner"
-			
-			// verificar sonnar con estado de la calidad 
-			    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-			    echo '----> SONAR - CHECK - status Analyst'
-			    echo '-----       status: ${qg.status}'
-			    if (qg.status != 'OK') {
-			      error "Pipeline aborted due to quality gate failure: ${qg.status}"
-			    }
-			 
+			 }
 			}
-		      }
+	        
 		/*steps {
 			echo '----------------------------------------------------------------------------------'
 			echo '--------------------------SONARQUBE ANALIST---------------------------------------'
@@ -66,6 +58,22 @@ pipeline {
 			*/
 		//}
 	}
+	/*
+			// verificar sonnar con estado de la calidad 
+			  script {
+			    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+			    echo '----> SONAR - CHECK - status Analyst'
+			    echo '-----       status: ${qg.status}'
+			    if (qg.status != 'OK') {
+			      error "Pipeline aborted due to quality gate failure: ${qg.status}"
+			    }    
+	  */  
+	stage("Quality Gate 1") {
+            steps {
+		 echo '----> SONAR - CHECK - status Analyst: '
+                waitForQualityGate abortPipeline: true
+            }
+        }
 	stage('Test') { 
             steps {
                 sh 'mvn test' 
