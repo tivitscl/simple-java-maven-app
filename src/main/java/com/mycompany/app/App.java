@@ -10,7 +10,7 @@ public class App
     private final String message = "Hello World!";
 
     public static void main(String[] args) {
-        LOG.log(Level.INFO,new App().getMessage());
+        LOG.log(new App().getMessage());
     }
 
     private final String getMessage() {
