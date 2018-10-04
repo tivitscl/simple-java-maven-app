@@ -43,7 +43,14 @@ pipeline {
 			withSonarQubeEnv('sonarServer') { // definido en admin jenkins : SOnarWube servers
 			 sh "${sonarHOME}/bin/sonar-scanner"
 			//sh "sonar-scanner"
-	
+			
+			// verificar sonnar con estado de la calidad 
+			    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+			    echo '----> SONAR - CHECK - status Analyst'
+			    echo '-----       status: ${qg.status}'
+			    if (qg.status != 'OK') {
+			      error "Pipeline aborted due to quality gate failure: ${qg.status}"
+			    }
 			 
 			}
 		      }
