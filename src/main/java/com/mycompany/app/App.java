@@ -10,12 +10,10 @@ public class App
     private static final String message = "Hello World!";
 
     public static void main(String[] args) {
-        getMessage();
+       
         LOG.info("Hello World!");
     }
 
-    private final String getMessage() {
-        return message;
-    }
+   
 
 }
