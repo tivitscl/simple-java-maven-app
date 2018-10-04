@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class AppTest
 {
-    private final static Logger LOG = Logger.getLogger("com.mycompany.app.AppTest");
+    private static final Logger LOG = Logger.getLogger("com.mycompany.app.AppTest");
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -37,7 +37,7 @@ public class AppTest
         LOG.info("---------------- Realizando Test: testAppMain() --------------------");
         App.main(null);
         try {
-          //  assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
+          
            assertTrue("Hello World!"!=outContent.toString());
         } catch (AssertionError e) {
             fail("\"message\" is not \"Hello World!\"");
