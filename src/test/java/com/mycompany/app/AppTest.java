@@ -6,13 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import static org.junit.Assert.*;
+import java.util.logging.Logger;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest
 {
-
+    private final static Logger LOG = Logger.getLogger("com.mycompany.app.AppTest");
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -23,7 +24,7 @@ public class AppTest
     @Test
     public void testAppConstructor() {
         try {
-            System.out.println("---------------- Realizando Test: testAppConstructor() -----------------");
+            LOG.log(Level.INFO,"---------------- Realizando Test: testAppConstructor() -----------------");
             new App();
         } catch (Exception e) {
             fail("Construction failed.");
@@ -33,7 +34,7 @@ public class AppTest
     @Test
     public void testAppMain()
     {
-        System.out.println("---------------- Realizando Test: testAppMain() --------------------");
+        LOG.log(Level.INFO,"---------------- Realizando Test: testAppMain() --------------------");
         App.main(null);
         try {
           //  assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
