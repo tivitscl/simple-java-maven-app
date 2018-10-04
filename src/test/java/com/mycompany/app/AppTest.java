@@ -24,7 +24,7 @@ public class AppTest
     @Test
     public void testAppConstructor() {
         try {
-            LOG.log("---------------- Realizando Test: testAppConstructor() -----------------");
+            LOG.info("---------------- Realizando Test: testAppConstructor() -----------------");
             new App();
         } catch (Exception e) {
             fail("Construction failed.");
@@ -34,7 +34,7 @@ public class AppTest
     @Test
     public void testAppMain()
     {
-        LOG.log("---------------- Realizando Test: testAppMain() --------------------");
+        LOG.info("---------------- Realizando Test: testAppMain() --------------------");
         App.main(null);
         try {
           //  assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
