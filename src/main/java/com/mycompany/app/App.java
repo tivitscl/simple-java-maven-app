@@ -6,10 +6,11 @@ import java.util.logging.Logger;
  */
 public class App
 {
-    private final static Logger LOG = Logger.getLogger("com.mycompany.app.App");
-    private final String message = "Hello World!";
+    private static final  Logger LOG = Logger.getLogger("com.mycompany.app.App");
+    private static final String message = "Hello World!";
 
     public static void main(String[] args) {
+        getMessage();
         LOG.info("Hello World!");
     }
 
