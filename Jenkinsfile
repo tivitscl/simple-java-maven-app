@@ -71,14 +71,18 @@ pipeline {
 	stage("Quality Gate 1") {
             steps {
 		 echo '----> SONAR - CHECK - status Analyst: '
-		 timeout(time: 3, unit: 'MINUTES') {
-		    script{
+		 timeout(time: 10, unit: 'MINUTES') {
+	         waitForQualityGate abortPipeline: true
+		/*  funciona OK    script{
 		def qualitygate = waitForQualityGate()
+			    echo  "valor de gate: ${qualitygate}"
 		      if (qualitygate.status != "OK") {
 			 error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
 		      }
-		    }
-		 }
+		    } // end of script
+		   */
+		 }//end timeout
+		 
                 //waitForQualityGate abortPipeline: true
             }
         }
