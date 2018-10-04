@@ -7,9 +7,7 @@ public class App
 {
 
     private final String message = "Hello World!";
- /* comentar para que pase analyst of sonar
-  *  public App() {}
-*/
+
     public static void main(String[] args) {
         System.out.println(new App().getMessage());
     }
